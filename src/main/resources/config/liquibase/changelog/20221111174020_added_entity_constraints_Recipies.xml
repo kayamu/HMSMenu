@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Recipies.
+    -->
+    <changeSet id="20221111174020-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="recipies_id"
+                                 baseTableName="rel_recipies__images_urls"
+                                 constraintName="fk_rel_recipies__images_urls__recipies_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipies"/>
+
+        <addForeignKeyConstraint baseColumnNames="images_urls_id"
+                                 baseTableName="rel_recipies__images_urls"
+                                 constraintName="fk_rel_recipies__images_urls__images_urls_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="images_url"/>
+    </changeSet>
+</databaseChangeLog>

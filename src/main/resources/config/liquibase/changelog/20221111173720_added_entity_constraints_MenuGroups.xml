@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity MenuGroups.
+    -->
+    <changeSet id="20221111173720-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="menu_groups_id"
+                                 baseTableName="rel_menu_groups__ingradients"
+                                 constraintName="fk_rel_menu_groups__ingradients__menu_groups_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="menu_groups"/>
+
+        <addForeignKeyConstraint baseColumnNames="ingradients_id"
+                                 baseTableName="rel_menu_groups__ingradients"
+                                 constraintName="fk_rel_menu_groups__ingradients__ingradients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingredients"/>
+
+        <addForeignKeyConstraint baseColumnNames="menu_groups_id"
+                                 baseTableName="rel_menu_groups__menus"
+                                 constraintName="fk_rel_menu_groups__menus__menu_groups_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="menu_groups"/>
+
+        <addForeignKeyConstraint baseColumnNames="menus_id"
+                                 baseTableName="rel_menu_groups__menus"
+                                 constraintName="fk_rel_menu_groups__menus__menus_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="menus"/>
+
+        <addForeignKeyConstraint baseColumnNames="menu_groups_id"
+                                 baseTableName="rel_menu_groups__images_urls"
+                                 constraintName="fk_rel_menu_groups__images_urls__menu_groups_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="menu_groups"/>
+
+        <addForeignKeyConstraint baseColumnNames="images_urls_id"
+                                 baseTableName="rel_menu_groups__images_urls"
+                                 constraintName="fk_rel_menu_groups__images_urls__images_urls_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="images_url"/>
+
+        <addForeignKeyConstraint baseColumnNames="nutriens_id"
+                                 baseTableName="menu_groups"
+                                 constraintName="fk_menu_groups__nutriens_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nutriens"/>
+    </changeSet>
+</databaseChangeLog>

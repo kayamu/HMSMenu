@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Meals.
+    -->
+    <changeSet id="20221111173820-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="meals_id"
+                                 baseTableName="rel_meals__images_urls"
+                                 constraintName="fk_rel_meals__images_urls__meals_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="meals"/>
+
+        <addForeignKeyConstraint baseColumnNames="images_urls_id"
+                                 baseTableName="rel_meals__images_urls"
+                                 constraintName="fk_rel_meals__images_urls__images_urls_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="images_url"/>
+
+        <addForeignKeyConstraint baseColumnNames="meals_id"
+                                 baseTableName="rel_meals__meal_ingredients"
+                                 constraintName="fk_rel_meals__meal_ingredients__meals_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="meals"/>
+
+        <addForeignKeyConstraint baseColumnNames="meal_ingredients_id"
+                                 baseTableName="rel_meals__meal_ingredients"
+                                 constraintName="fk_rel_meals__meal_ingredients__meal_ingredients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="meal_ingredients"/>
+
+        <addForeignKeyConstraint baseColumnNames="nutriens_id"
+                                 baseTableName="meals"
+                                 constraintName="fk_meals__nutriens_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nutriens"/>
+
+        <addForeignKeyConstraint baseColumnNames="recipies_id"
+                                 baseTableName="meals"
+                                 constraintName="fk_meals__recipies_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipies"/>
+    </changeSet>
+</databaseChangeLog>

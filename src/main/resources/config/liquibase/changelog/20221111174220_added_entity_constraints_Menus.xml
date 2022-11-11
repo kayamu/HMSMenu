@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Menus.
+    -->
+    <changeSet id="20221111174220-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="menus_id"
+                                 baseTableName="rel_menus__images_urls"
+                                 constraintName="fk_rel_menus__images_urls__menus_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="menus"/>
+
+        <addForeignKeyConstraint baseColumnNames="images_urls_id"
+                                 baseTableName="rel_menus__images_urls"
+                                 constraintName="fk_rel_menus__images_urls__images_urls_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="images_url"/>
+
+        <addForeignKeyConstraint baseColumnNames="menus_id"
+                                 baseTableName="rel_menus__meals"
+                                 constraintName="fk_rel_menus__meals__menus_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="menus"/>
+
+        <addForeignKeyConstraint baseColumnNames="meals_id"
+                                 baseTableName="rel_menus__meals"
+                                 constraintName="fk_rel_menus__meals__meals_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="meals"/>
+
+        <addForeignKeyConstraint baseColumnNames="nutriens_id"
+                                 baseTableName="menus"
+                                 constraintName="fk_menus__nutriens_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nutriens"/>
+    </changeSet>
+</databaseChangeLog>

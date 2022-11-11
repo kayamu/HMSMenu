@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Ingredients.
+    -->
+    <changeSet id="20221111173920-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="ingredients_id"
+                                 baseTableName="rel_ingredients__images_urls"
+                                 constraintName="fk_rel_ingredients__images_urls__ingredients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingredients"/>
+
+        <addForeignKeyConstraint baseColumnNames="images_urls_id"
+                                 baseTableName="rel_ingredients__images_urls"
+                                 constraintName="fk_rel_ingredients__images_urls__images_urls_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="images_url"/>
+
+        <addForeignKeyConstraint baseColumnNames="nutriens_id"
+                                 baseTableName="ingredients"
+                                 constraintName="fk_ingredients__nutriens_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nutriens"/>
+    </changeSet>
+</databaseChangeLog>
